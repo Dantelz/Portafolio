@@ -1,0 +1,515 @@
+/* =========================================================
+   VARIABLES CSS (:root)
+   Cambiando estos valores, cambia el look de todo el sitio
+   ========================================================= */
+:root {
+  --bg: #12121c;
+  --bg-alt: #1a1a29;
+  --surface: #201f30;
+  --border: #2c2b40;
+  --text: #eae8f2;
+  --text-muted: #a5a2b8;
+  --accent: #7c5cff;       /* violeta: color principal */
+  --accent-2: #f2b84b;     /* ámbar: color secundario / detalles */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius: 10px;
+  --transition: 0.25s ease;
+}
+
+/* Modo claro: se activa agregando la clase .light-mode al <body> con JS */
+body.light-mode {
+  --bg: #f7f6fb;
+  --bg-alt: #ffffff;
+  --surface: #ffffff;
+  --border: #e2e0ee;
+  --text: #1c1b29;
+  --text-muted: #5c5972;
+}
+
+/* =========================================================
+   RESET BÁSICO
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* scroll suave al navegar entre secciones */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  transition: background-color var(--transition), padding var(--transition);
+}
+
+.navbar--scrolled {
+  background-color: rgba(18, 18, 28, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+body.light-mode .navbar--scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.cursor {
+  color: var(--accent);
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.navbar__links {
+  display: flex;
+  gap: 28px;
+}
+
+.navbar__links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  position: relative;
+  transition: color var(--transition);
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+
+.navbar__links a:hover {
+  color: var(--text);
+}
+
+.navbar__links a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   UTILIDADES DE SECCIÓN
+   ========================================================= */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.section--alt {
+  background-color: var(--bg-alt);
+  max-width: 100%;
+}
+
+.section--alt > * {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 40px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  overflow: hidden;
+}
+
+/* Fondo decorativo con gradiente radial (uso creativo de fondo) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(124, 92, 255, 0.25), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(242, 184, 75, 0.15), transparent 45%);
+  z-index: -1;
+}
+
+.hero__content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--text);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.hero__desc {
+  max-width: 560px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Botones propios (no Bootstrap), con transición hover */
+.btn-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+.btn-custom--primary {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.btn-custom--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(124, 92, 255, 0.35);
+}
+
+.btn-custom--outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-custom--outline:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Recoloreamos el botón de Bootstrap para que combine con la paleta */
+.btn-custom-bs {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* =========================================================
+   SOBRE MÍ (Flexbox)
+   ========================================================= */
+.about {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about__photo img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.about__text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about__text p {
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.about__facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.about__facts i {
+  color: var(--accent);
+  width: 20px;
+}
+
+/* =========================================================
+   PROYECTOS (CSS Grid)
+   ========================================================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.card-project {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card-project:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+.card-project img {
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+}
+
+.card-project__body {
+  padding: 20px;
+}
+
+.card-project__body h3 {
+  font-family: var(--font-display);
+  margin-bottom: 8px;
+}
+
+.card-project__body p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+}
+
+.card-project__tags {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.card-project__tags li {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 100px;
+  color: var(--accent-2);
+}
+
+.card-project__links {
+  display: flex;
+  gap: 18px;
+}
+
+.card-project__links a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: opacity var(--transition);
+}
+
+.card-project__links a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================================
+   HABILIDADES (Flexbox de chips)
+   ========================================================= */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: transform var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.skill-chip i {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.skill-chip:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--accent);
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.contact__info p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.contact__socials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact__socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: color var(--transition);
+}
+
+.contact__socials a:hover {
+  color: var(--accent);
+}
+
+.contact__form .form-label {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.contact__form .form-control {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.contact__form .form-control:focus {
+  background-color: var(--bg);
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none; /* en un proyecto real, acá iría un menú hamburguesa */
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about__facts {
+    align-items: center;
+  }
+}

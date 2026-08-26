@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Pérez — Desarrollador Web</title>
+  <meta name="description" content="Portfolio personal de Juan Pérez, desarrollador web.">
+
+  <!-- Favicon personalizado (reemplazá /assets/favicon.png por el tuyo) -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Google Fonts: una para títulos (display) y otra para texto (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para los íconos de habilidades -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Bootstrap: lo usamos solo para el formulario de contacto y algún botón -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Nuestro propio CSS. Va DESPUÉS de bootstrap para poder sobreescribirlo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR FIJA CON SCROLL SUAVE ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#inicio" class="navbar__brand">JP<span class="cursor">_</span></a>
+
+      <nav class="navbar__links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Botón de modo oscuro/claro -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema claro/oscuro">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO / INICIO ===== -->
+    <section id="inicio" class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="eyebrow">// hola, mi nombre es</p>
+        <h1 class="hero__title">Juan Pérez</h1>
+        <p class="hero__subtitle">Desarrollador Web Frontend &amp; estudiante de Algoritmos y Estructuras de Datos</p>
+        <p class="hero__desc">
+          Construyo interfaces prolijas y funcionales. Me interesa la lógica detrás de las cosas
+          tanto como cómo se ven en pantalla.
+        </p>
+        <div class="hero__actions">
+          <a href="#proyectos" class="btn-custom btn-custom--primary">Ver proyectos</a>
+          <a href="assets/CV-Juan-Perez.pdf" class="btn-custom btn-custom--outline" download>
+            <i class="fa-solid fa-download"></i> Descargar CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE MÍ ===== -->
+    <section id="sobre-mi" class="section">
+      <p class="eyebrow">// sobre mí</p>
+      <h2 class="section__title">Quién soy</h2>
+
+      <div class="about">
+        <div class="about__photo">
+          <img src="https://placehold.co/320x320" alt="Foto de perfil de Juan Pérez">
+        </div>
+        <div class="about__text">
+          <p>
+            Soy estudiante de la Tecnicatura en Programación y me apasiona resolver problemas con código.
+            Vengo del mundo del diseño gráfico, así que trato de que cada proyecto se vea tan bien como funciona.
+          </p>
+          <p>
+            Actualmente curso <strong>Laboratorio de Algoritmos y Estructuras de Datos</strong>, y este mismo
+            portfolio es parte de ese trabajo: lo fui armando (y voy a seguir mejorándolo) mientras aprendo
+            HTML, CSS y buenas prácticas de desarrollo web.
+          </p>
+          <ul class="about__facts">
+            <li><i class="fa-solid fa-location-dot"></i> Buenos Aires, Argentina</li>
+            <li><i class="fa-solid fa-graduation-cap"></i> Tecnicatura en Programación</li>
+            <li><i class="fa-solid fa-briefcase"></i> Disponible para prácticas / freelance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section id="proyectos" class="section section--alt">
+      <p class="eyebrow">// proyectos</p>
+      <h2 class="section__title">Cosas que hice</h2>
+
+      <div class="projects-grid">
+
+        <article class="card-project">
+          <img src="https://placehold.co/500x300" alt="Captura del proyecto Lista de Tareas">
+          <div class="card-project__body">
+            <h3>Lista de Tareas (To-Do App)</h3>
+            <p>
+              Aplicación para organizar tareas diarias con HTML, CSS y JavaScript puro.
+              Permite marcar tareas como completas y guardarlas en el navegador.
+            </p>
+            <ul class="card-project__tags">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="card-project__links">
+              <a href="#" target="_blank" rel="noopener">Ver demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" target="_blank" rel="noopener">Código <i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-project">
+          <img src="https://placehold.co/500x300" alt="Captura del proyecto Buscador de Clima">
+          <div class="card-project__body">
+            <h3>Buscador de Clima</h3>
+            <p>
+              Consulta el clima actual de cualquier ciudad usando una API pública.
+              Practica de fetch, async/await y manejo de errores.
+            </p>
+            <ul class="card-project__tags">
+              <li>JavaScript</li>
+              <li>API REST</li>
+              <li>CSS Grid</li>
+            </ul>
+            <div class="card-project__links">
+              <a href="#" target="_blank" rel="noopener">Ver demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" target="_blank" rel="noopener">Código <i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card-project">
+          <img src="https://placehold.co/500x300" alt="Captura de este mismo portfolio">
+          <div class="card-project__body">
+            <h3>Este Portfolio</h3>
+            <p>
+              El sitio que estás viendo ahora mismo. Hecho con HTML y CSS semántico,
+              variables CSS, modo oscuro y animaciones simples.
+            </p>
+            <ul class="card-project__tags">
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>Bootstrap</li>
+            </ul>
+            <div class="card-project__links">
+              <a href="#" target="_blank" rel="noopener">Ver demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              <a href="#" target="_blank" rel="noopener">Código <i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section id="habilidades" class="section">
+      <p class="eyebrow">// habilidades</p>
+      <h2 class="section__title">Con qué trabajo</h2>
+
+      <div class="skills">
+        <div class="skill-chip"><i class="fa-brands fa-html5"></i> HTML5</div>
+        <div class="skill-chip"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+        <div class="skill-chip"><i class="fa-brands fa-js"></i> JavaScript</div>
+        <div class="skill-chip"><i class="fa-brands fa-bootstrap"></i> Bootstrap</div>
+        <div class="skill-chip"><i class="fa-brands fa-git-alt"></i> Git</div>
+        <div class="skill-chip"><i class="fa-brands fa-github"></i> GitHub</div>
+        <div class="skill-chip"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="skill-chip"><i class="fa-solid fa-diagram-project"></i> Estructuras de Datos</div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="section section--alt">
+      <p class="eyebrow">// contacto</p>
+      <h2 class="section__title">Hablemos</h2>
+
+      <div class="contact">
+        <div class="contact__info">
+          <p>¿Tenés un proyecto en mente o querés charlar de código? Escribime.</p>
+          <ul class="contact__socials">
+            <li><a href="mailto:juan.perez@example.com"><i class="fa-solid fa-envelope"></i> juan.perez@example.com</a></li>
+            <li><a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> github.com/juanperez</a></li>
+            <li><a href="https://linkedin.com/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/juanperez</a></li>
+          </ul>
+        </div>
+
+        <!-- Formulario hecho con clases de Bootstrap -->
+        <form class="contact__form" action="#" method="post">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-custom-bs">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2026 Juan Pérez. Hecho con HTML, CSS y demasiado café.</p>
+  </footer>
+
+  <!-- JS de Bootstrap (opcional, solo si usás sus componentes interactivos) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Nuestro JS chiquito: modo oscuro + navbar al hacer scroll -->
+  <script>
+    // Modo oscuro / claro
+    const toggleBtn = document.getElementById('theme-toggle');
+    const icon = toggleBtn.querySelector('i');
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      icon.classList.toggle('fa-moon', !isLight);
+      icon.classList.toggle('fa-sun', isLight);
+    });
+
+    // Navbar con fondo al hacer scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('navbar--scrolled', window.scrollY > 30);
+    });
+  </script>
+
+</body>
+</html>
