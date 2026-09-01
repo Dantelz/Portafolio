@@ -152,3 +152,32 @@ p {
     display: none;
 }
 
+.sectioncard--wide {
+    width: min(1000px, 100%);
+}
+
+.carousel-proyectos {
+    margin-top: 2rem;
+    border: 1px solid var(--section-accent);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.carousel-proyectos .carousel-item img {
+    height: 420px;
+    object-fit: cover; 
+}
+
+
+.carousel-proyectos .carousel-control-prev-icon,
+.carousel-proyectos .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .carousel-proyectos .carousel-item img {
+        height: 240px;
+    }
+}
