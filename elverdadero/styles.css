@@ -328,8 +328,12 @@ p {
     aspect-ratio: 17 / 9;
 }
 
-.proyectoslither,
 .proyectopokemon {
+    aspect-ratio: 21 / 13;
+    background-color: #100a19;
+}
+
+.proyectoslither {
     aspect-ratio: 18 / 12;
     background-color: #100a19;
 }
