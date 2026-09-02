@@ -19,16 +19,87 @@ body {
     left: 0;
     right: 0;
     z-index: 100;
+
     padding: 18px 0;
-    background-color: rgba(38, 15, 51, 0.94);
+
+    /* La navbar deja ver la textura */
+    background: rgba(38, 15, 51, 0.30);
+
     border-bottom: 1px solid #9d4edd;
-    transition: padding 220ms ease, background-color 220ms ease;
+
+    transition:
+        padding 220ms ease,
+        background-color 220ms ease;
+
+    overflow: hidden;
+
+    /* Control de opacidad de las escamas */
+    --escamas-opacity: 0.78;
 }
+
+
+/* =========================
+   TEXTURA DE ESCAMAS
+   ========================= */
+
+.navbar::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("assets/escamas.png");
+    background-size: cover;
+    background-position: center 48%;
+    background-repeat: no-repeat;
+
+    opacity: var(--escamas-opacity);
+    z-index: -2;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+}
+
+
+/* Capa violeta encima de las escamas */
+.navbar::after {
+    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(38, 15, 51, 0.35);
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    transition: background-color 220ms ease;
+}
+
+
+/* =========================
+   CONTENIDO DE LA NAVBAR
+   ========================= */
+
+.navbarinner {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+   NAVBAR CUANDO SE ACHICA
+   ========================= */
 
 .navbar.small {
     padding: 8px 0;
-    background-color: rgba(38, 15, 51, 0.98);
 
+    background: rgba(38, 15, 51, 0.35);
+
+    --escamas-opacity: 0.72;
 }
 
 .navbarinner {
